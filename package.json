@@ -1,7 +1,10 @@
 {
   "name": "ng15",
   "version": "1.0.0",
-  "description": "",
+  "description": "研習",
+  "scripts": {
+    "start": "lite-server"
+  },
   "dependencies": {},
   "devDependencies": {
     "eslint": "2.5.3",
