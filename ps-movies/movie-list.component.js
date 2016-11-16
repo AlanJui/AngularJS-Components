@@ -1,21 +1,42 @@
 (function () {
   'use strict';
 
-  function movieList() {
-    var model = this;
+  function movieListCtrl($http) {
+    var vm = this;
+    vm.movies = [];
 
-    model.message = 'Hello from Component Message';
+    function fetchMovie($http) {
+      return $http.get('/db/movies.json')
+        .then(function (response) {
+          return response.data;
+          });
+    }
 
-    model.changeMsg = function () {
-      model.message = 'New message';
+    vm.upRating = function (movie) {
+      if (movie.rating < 5) {
+        movie.rating++;
+      }
     };
+
+    vm.downRating = function (movie) {
+      if (movie.rating > 1) {
+        movie.rating--;
+      }
+    };
+
+    vm.$onInit = function () {
+      fetchMovie($http).then(function (movies) {
+        vm.movies = movies;
+      });
+    };
+
   }
 
   var module = angular.module('psMovies');
 
   module.component('movieList', {
     templateUrl: '/ps-movies/movie-list.component.html',
-    controllerAs: 'model',
-    controller: movieList
+    controllerAs: 'vm',
+    controller: ['$http', movieListCtrl]
   });
 }());
