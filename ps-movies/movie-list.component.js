@@ -24,6 +24,10 @@
       }
     };
 
+    vm.goTo = function (movieID) {
+      vm.$router.navigate([ 'Details', { id: movieID } ]);
+    };
+
     vm.$onInit = function () {
       fetchMovie($http).then(function (movies) {
         vm.movies = movies;
@@ -36,6 +40,9 @@
 
   module.component('movieList', {
     templateUrl: '/ps-movies/movie-list.component.html',
+    bindings: {
+      $router: '<'
+    },
     controllerAs: 'vm',
     controller: ['$http', movieListCtrl]
   });

@@ -19,6 +19,11 @@
         name: 'List'
       },
       {
+        path: '/detail/:id',
+        component: 'movieDetails',
+        name: 'Details'
+      },
+      {
         path: '/about',
         component: 'appAbout',
         name: 'About'

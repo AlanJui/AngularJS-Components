@@ -15,14 +15,19 @@
         </movie-rating>
       </td>
       <td>
-        <div class="btn-group">
-          <buton class="btn btn-default" ng-click="vm.upRating(movie)">
-            <span class="glyphicon glyphicon-plus"></span>
-          </buton>
-          <buton class="btn btn-default" ng-click="vm.downRating(movie)">
-            <span class="glyphicon glyphicon-minus"></span>
-          </buton>
-        </div>
+        <buton class="btn btn-default" ng-click="vm.upRating(movie)">
+          <span class="glyphicon glyphicon-plus"></span>
+        </buton>
+        <buton class="btn btn-default" ng-click="vm.downRating(movie)">
+          <span class="glyphicon glyphicon-minus"></span>
+        </buton>
+
+        <!--<a ng-link="['Details', {id: movie.id}]" class="btn btn-default">-->
+          <!--<span class="glyphicon glyphicon-zoom-in"></span>-->
+        <!--</a>-->
+        <button ng-click="vm.goTo(movie.id)" class="btn btn-default">
+          <span class="glyphicon glyphicon-zoom-in"></span>
+        </button>
       </td>
     </tr>
   </table>
