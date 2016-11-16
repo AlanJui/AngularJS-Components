@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  function movieListCtrl($http) {
+  function movieList2Ctrl($http) {
     var vm = this;
     vm.movies = [];
 
@@ -9,8 +9,12 @@
       return $http.get('/db/movies.json')
         .then(function (response) {
           return response.data;
-          });
+        });
     }
+
+    vm.setRating = function (movie, rating) {
+      movie.rating = rating;
+    };
 
     vm.upRating = function (movie) {
       if (movie.rating < 5) {
@@ -38,12 +42,12 @@
 
   var module = angular.module('psMovies');
 
-  module.component('movieList', {
-    templateUrl: '/ps-movies/movie-list.component.html',
+  module.component('movieList2', {
+    templateUrl: '/ps-movies/movie-list2.component.html',
     bindings: {
       $router: '<'
     },
     controllerAs: 'vm',
-    controller: ['$http', movieListCtrl]
+    controller: ['$http', movieList2Ctrl]
   });
 }());

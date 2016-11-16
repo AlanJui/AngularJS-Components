@@ -1,0 +1,32 @@
+<div>
+  <table class="table">
+    <tr>
+      <th>Title</th>
+      <th>Length</th>
+      <th>Rating</th>
+      <th></th>
+    </tr>
+    <tr ng-repeat="movie in vm.movies">
+      <td>{{movie.title}}</td>
+      <td>{{movie.length}}</td>
+      <td>
+        <movie-rating2 rating-value="movie.rating" max-value="5"
+                       set-rating="vm.setRating(movie, value)">
+          <span class="glyphicon glyphicon-star"></span>
+        </movie-rating2>
+      </td>
+      <td>
+        <buton class="btn btn-default" ng-click="vm.upRating(movie)">
+          <span class="glyphicon glyphicon-plus"></span>
+        </buton>
+        <buton class="btn btn-default" ng-click="vm.downRating(movie)">
+          <span class="glyphicon glyphicon-minus"></span>
+        </buton>
+
+        <button ng-click="vm.goTo(movie.id)" class="btn btn-default">
+          <span class="glyphicon glyphicon-zoom-in"></span>
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -19,7 +19,12 @@
         name: 'List'
       },
       {
-        path: '/detail/:id',
+        path: '/list2',
+        component: 'movieList2',
+        name: 'List2'
+      },
+      {
+        path: '/detail/:id/...',
         component: 'movieDetails',
         name: 'Details'
       },
