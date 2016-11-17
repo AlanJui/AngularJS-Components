@@ -1,8 +1,16 @@
 body{
-	padding:10px;
-	background-color: #ccccbb;
+  padding:10px;
+  background-color: #ccccbb;
 }
 
 .ng-cloak {
-    display: none;
+  display: none;
+}
+
+accordion .ng-enter {
+  animation: fadeIn 0.5s
+}
+
+accordion .ng-leave {
+  animation: fadeOut 0.5s
 }
