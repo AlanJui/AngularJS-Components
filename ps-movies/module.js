@@ -2,7 +2,8 @@
   'use strict';
 
   var module = angular.module('psMovies', [
-    'ngComponentRouter'
+    'ngComponentRouter',
+    'ngAnimate'
   ]);
 
   module.value('$routerRootComponent', 'movieApp');
