@@ -6,6 +6,7 @@
     var vm = this;
 
 
+
   }
 
   var module = angular.module('psMovies');

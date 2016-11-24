@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  function movieListCtrl($http) {
+  function movieListCtrl($http, Thing) {
     var vm = this;
     vm.movies = [];
 
@@ -10,6 +10,14 @@
         .then(function (response) {
           return response.data;
           });
+    }
+
+    function fetchThings($http) {
+      var API_URL = 'http://192.168.66.10:3000/api/things';
+      return $http.get(API_URL)
+        .then(function (response) {
+          return response.data;
+        });
     }
 
     vm.upRating = function (movie) {
@@ -32,6 +40,10 @@
       fetchMovie($http).then(function (movies) {
         vm.movies = movies;
       });
+
+      vm.things = Thing.query(function () {
+        console.log(vm.things);
+      });
     };
 
   }
@@ -44,6 +56,6 @@
       $router: '<'
     },
     controllerAs: 'vm',
-    controller: ['$http', movieListCtrl]
+    controller: ['$http', 'Thing', movieListCtrl]
   });
 }());

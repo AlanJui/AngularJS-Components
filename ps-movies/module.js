@@ -3,6 +3,7 @@
 
   var module = angular.module('psMovies', [
     'ngComponentRouter',
+    'ngResource',
     'ngAnimate'
   ]);
 
